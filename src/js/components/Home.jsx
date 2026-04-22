@@ -1,32 +1,45 @@
 import React from "react";
- 
+
 // Navbar 
 const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<a className="navbar-brand" href="#">
-				Blog de Kevin Martín Price
-			</a>
-			<div className="collapse navbar-collapse">
-				<ul className="navbar-nav ms-auto">
-					<li className="nav-item">
-						<a className="nav-link active" href="#">Home</a>
-					</li>
-					<li className="nav-item">
-						<a className="nav-link" href="#">About</a>
-					</li>
-					<li className="nav-item">
-						<a className="nav-link" href="#">Services</a>
-					</li>
-					<li className="nav-item">
-						<a className="nav-link" href="#">Contact</a>
-					</li>
-				</ul>
+		<nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+			<div className="container-fluid">
+				<a className="navbar-brand" href="#">
+					Blog de Kevin Martín Price
+				</a>
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className="collapse navbar-collapse" id="navbarNav">
+					<ul className="navbar-nav ms-auto">
+						<li className="nav-item">
+							<a className="nav-link active" href="#">Home</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#">About</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#">Services</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	);
 };
- 
+
 // Jumbotron 
 const Jumbotron = () => {
 	return (
@@ -41,7 +54,7 @@ const Jumbotron = () => {
 		</div>
 	);
 };
- 
+
 // Card
 const Card = ({ title, text, image }) => {
 	return (
@@ -64,7 +77,7 @@ const Card = ({ title, text, image }) => {
 		</div>
 	);
 };
- 
+
 // Home
 const Home = () => {
 	const cards = [
@@ -89,26 +102,26 @@ const Home = () => {
 			image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=325&fit=crop",
 		},
 	];
- 
+
 	return (
 		<div>
 			<Navbar />
- 
+
 			<div className="container mt-4">
 				<Jumbotron />
- 
+
 				<div className="row row-cols-1 row-cols-md-4 g-4">
 					{cards.map((card, index) => (
 						<Card key={index} title={card.title} text={card.text} image={card.image} />
 					))}
 				</div>
 			</div>
- 
+
 			<footer className="text-center py-3 mt-5 bg-light">
 				<p className="mb-0">Copyright &copy; Your Website 2019</p>
 			</footer>
 		</div>
 	);
 };
- 
+
 export default Home;
